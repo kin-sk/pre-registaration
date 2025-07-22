@@ -1,0 +1,24 @@
+# .dockerignore
+
+# Docker関連のファイル
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Node.jsの依存関係
+node_modules
+
+# Next.jsのビルドキャッシュ
+.next
+
+# Git関連
+.git
+.gitignore
+
+# 環境変数ファイル（セキュリティのため）
+.env.local
+.env
+
+# その他
+npm-debug.log*
+README.md

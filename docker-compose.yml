@@ -1,0 +1,37 @@
+# docker-compose.yml
+
+services:
+  # サービス名を "next-app" とします
+  next-app:
+    # Dockerイメージをビルドするための設定
+    build:
+      context: . # Dockerfileがあるディレクトリ（カレントディレクトリ）
+      dockerfile: ./docker/Dockerfile
+    
+    # コンテナ名を指定
+    container_name: dental_booking_app
+
+    # ポートのマッピング
+    # [ホストOSのポート]:[コンテナのポート]
+    # ブラウザから http://localhost:3000 でアクセスできるようになります。
+    ports:
+      - "3000:3000"
+
+    # ボリュームのマッピング（非常に重要！）
+    # ホストOSのファイルとコンテナ内のファイルを同期させます。
+    # これにより、ローカルでコードを編集すると、即座にコンテナ内のファイルも更新され、
+    # Next.jsの開発サーバーが自動でリロードします。
+    volumes:
+      - .:/app # カレントディレクトリをコンテナの/appにマウント
+      - /app/node_modules # node_modulesはホストOSと同期しないように除外
+      - /app/.next # .nextディレクトリも同期から除外
+
+    # 環境変数の設定
+    # FirebaseのAPIキーなど、秘匿情報や環境ごとに変わる値を設定します。
+    # ここに直接書く代わりに、.envファイルを使うのが一般的です。
+    env_file:
+      - .env.local
+
+    # コンテナを常に起動状態に保つ設定
+    tty: true
+    stdin_open: true
