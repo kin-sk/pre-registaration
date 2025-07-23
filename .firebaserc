@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "pre-registretion",
+    "firebase deploy --only firestore": "pre-registretion"
+  },
+  "targets": {},
+  "etags": {}
+}
