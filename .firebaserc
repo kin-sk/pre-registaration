@@ -1,7 +1,7 @@
 {
   "projects": {
-    "default": "pre-registretion",
-    "firebase deploy --only firestore": "pre-registretion"
+    "default": "registation-0730",
+    "firebase deploy --only firestore": "registation-0730"
   },
   "targets": {},
   "etags": {}
