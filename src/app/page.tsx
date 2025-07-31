@@ -4,7 +4,7 @@ import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 export default function Home() {
   return (
     <ChakraProvider value={defaultSystem}>
-      <AdminLoginPage />;
+      <AdminLoginPage />
     </ChakraProvider>
   );
 }
